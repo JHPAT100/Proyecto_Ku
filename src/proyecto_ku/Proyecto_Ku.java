@@ -16,10 +16,12 @@ public class Proyecto_Ku {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        FrameGraficoZona FrameZona = new FrameGraficoZona();
-        FrameZona.setVisible(true);
+        //FrameGraficoZona FrameZona = new FrameGraficoZona();
+        //FrameZona.setVisible(true);
         
-        
+        Menu_Principal Menu = new Menu_Principal();
+        Menu.test_list();
+        Menu.setVisible(true);
         
     }
     
