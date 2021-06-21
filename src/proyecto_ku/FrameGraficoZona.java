@@ -20,7 +20,7 @@ import javax.swing.WindowConstants;
  */
 public class FrameGraficoZona extends javax.swing.JFrame {
 
-    
+    String url;
     /**
      * Creates new form FrameGraficoZona
      */
@@ -53,6 +53,7 @@ public class FrameGraficoZona extends javax.swing.JFrame {
         Icon icon_mapa = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Mapa" + posicionNormal + ".png")).getImage().getScaledInstance(210, 178, Image.SCALE_DEFAULT)); 
         jLabel_Mapa.setIcon(icon_mapa);
         
+        url = zona.getUrlMapa();
          //JOptionPane.showMessageDialog(null, posicion);
     }
 
@@ -145,6 +146,11 @@ public class FrameGraficoZona extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "\"VER EN EL MAPA\"", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jLabel_Mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mapa1.png"))); // NOI18N
+        jLabel_Mapa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_MapaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -253,18 +259,23 @@ public class FrameGraficoZona extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel_ImagenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ImagenesMouseClicked
+        
+    }//GEN-LAST:event_jLabel_ImagenesMouseClicked
+
+    private void jLabel_MapaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MapaMouseClicked
         // TODO add your handling code here:
+        
         if(java.awt.Desktop.isDesktopSupported()){
             java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
              
             if(desktop.isSupported(java.awt.Desktop.Action.BROWSE)){
                 try{
-                    java.net.URI uri = new java.net.URI("https://www.google.com");
+                    java.net.URI uri = new java.net.URI(url);
                     desktop.browse(uri);
                 }catch(URISyntaxException | IOException ex){}
             }
         }
-    }//GEN-LAST:event_jLabel_ImagenesMouseClicked
+    }//GEN-LAST:event_jLabel_MapaMouseClicked
 
     /**
      * @param args the command line arguments

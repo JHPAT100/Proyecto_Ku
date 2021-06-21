@@ -39,6 +39,7 @@ public class Zonas extends InterfaceZonas {
            DatosExtra = "Otros edificios importantes que hay en esta ciudad son el Observatorio, también conocido "
                    + "\ncomo el Caracol, el Templo de los Guerreros, el complejo de Juego de Pelota, entre otros";
            NombreEspanol = "”BOCA DEL POZO DE LOS ITZAES”";
+           urlMapa="https://www.google.com.mx/maps/place/Chich%C3%A9n+Itz%C3%A1/@20.6842899,-88.5699713,17z/data=!4m12!1m6!3m5!1s0x8f5138c6e391c0e7:0x7c1ea0a168994d9a!2zQ2hpY2jDqW4gSXR6w6E!8m2!3d20.6842849!4d-88.5677826!3m4!1s0x8f5138c6e391c0e7:0x7c1ea0a168994d9a!8m2!3d20.6842849!4d-88.5677826";
          break;
          
          case 2:
@@ -52,6 +53,7 @@ public class Zonas extends InterfaceZonas {
                    + "\nen la necesidad de construir Chultunes, o depósitos de agua, y un complejo "
                    + "\nsistema de aguadas y bukteoobob, para aprovechar el agua de lluvia.";
            NombreEspanol = "”TRES VECES CONSTRUIDA”";    
+           urlMapa="https://www.google.com.mx/maps/place/Zona+Arqueol%C3%B3gica+de+Uxmal/@20.3610496,-89.7729746,17z/data=!3m1!4b1!4m5!3m4!1s0x8f56349ebaba4e77:0x1128a45bd7051c7!8m2!3d20.3610446!4d-89.7707859";
          break;
          
          case 3:
@@ -66,6 +68,7 @@ public class Zonas extends InterfaceZonas {
                    + "\nEn las inscripciones de la Estela 1 se puede leer la fecha 12 de "
                    + "\nDiciembre de 2012 que representa el comienzo de una nueva cuenta en el calendario maya.";
            NombreEspanol = "”AGUA PICADA”";  
+           urlMapa="https://www.google.com.mx/maps/place/Zona+Arqueol%C3%B3gica+de+Cob%C3%A1/@20.0334746,-87.4565634,9.5z/data=!4m5!3m4!1s0x8f51cf9d39d9283d:0x79546c8ca52e8f0b!8m2!3d20.4911165!4d-87.7330673";
          break;
          
          case 4:
@@ -79,6 +82,7 @@ public class Zonas extends InterfaceZonas {
                    + "\nque en maya significa “mañana” o “amanecer”. El nombre de Tulum se traduce como "
                    + "\n“muralla” en alusión a la muralla que aquí se conserva.";
            NombreEspanol = "”AMANECER”";  
+           urlMapa="https://www.google.com.mx/maps/place/Zona+Arqueol%C3%B3gica+de+Tulum/@20.2149554,-87.4316099,17z/data=!3m1!4b1!4m5!3m4!1s0x8f4fd17d16293265:0xff68d6fca492c963!8m2!3d20.2149504!4d-87.4294212";
          break;
             
          
