@@ -6,10 +6,13 @@
 package proyecto_ku;
 
 import java.awt.Image;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -29,7 +32,7 @@ public class FrameGraficoZona extends javax.swing.JFrame {
     //Sobrepongo la clase con ingreso de valores
     public FrameGraficoZona(int posicion) {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
         //Instancio la clase Zonas
         int posicionNormal=posicion+1;
         Zonas zona = new Zonas(posicionNormal);
@@ -45,7 +48,10 @@ public class FrameGraficoZona extends javax.swing.JFrame {
         jTextArea_Info.setText(zona.getInformacion());
         //Inserto los valores del texto
         jTextArea_Extra.setText(zona.getDatosExtra());
-        //\n
+        //
+        //Inserto los valores del la imagen del mapa
+        Icon icon_mapa = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Mapa" + posicionNormal + ".png")).getImage().getScaledInstance(210, 178, Image.SCALE_DEFAULT)); 
+        jLabel_Mapa.setIcon(icon_mapa);
         
          //JOptionPane.showMessageDialog(null, posicion);
     }
@@ -63,16 +69,18 @@ public class FrameGraficoZona extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel_Imagenes = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel_Nombre = new javax.swing.JLabel();
+        jLabel_datos = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel_Mapa = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_Extra = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
-        jLabel_Nombre1 = new javax.swing.JLabel();
+        jLabel_Nombre = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea_Info = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,6 +90,11 @@ public class FrameGraficoZona extends javax.swing.JFrame {
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel_Imagenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ruina_ejemplo.png"))); // NOI18N
+        jLabel_Imagenes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ImagenesMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -100,15 +113,15 @@ public class FrameGraficoZona extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 320, 290));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 320, 290));
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 51));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 
-        jLabel_Nombre.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel_Nombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_Nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_Nombre.setText("Datos curiosos");
+        jLabel_datos.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel_datos.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_datos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_datos.setText("Datos curiosos");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -116,14 +129,14 @@ public class FrameGraficoZona extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel_Nombre)
+                .addComponent(jLabel_datos)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_Nombre)
+                .addComponent(jLabel_datos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -131,7 +144,7 @@ public class FrameGraficoZona extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "\"VER EN EL MAPA\"", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabel_Mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/zona_tulum.png"))); // NOI18N
+        jLabel_Mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mapa1.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -147,7 +160,7 @@ public class FrameGraficoZona extends javax.swing.JFrame {
             .addComponent(jLabel_Mapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 240, 210));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 240, 210));
 
         jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 380, 10));
@@ -159,27 +172,27 @@ public class FrameGraficoZona extends javax.swing.JFrame {
         jTextArea_Extra.setText("Hola como estas \nmira que alto estas");
         jScrollPane1.setViewportView(jTextArea_Extra);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 620, 170));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 590, 130));
 
         jPanel6.setBackground(new java.awt.Color(255, 102, 51));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 
-        jLabel_Nombre1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel_Nombre1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_Nombre1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_Nombre1.setText("Zona Arqueológica de Tulum");
+        jLabel_Nombre.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel_Nombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Nombre.setText("Zona Arqueológica de Tulum");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_Nombre1, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+            .addComponent(jLabel_Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel_Nombre1)
+                .addComponent(jLabel_Nombre)
                 .addContainerGap())
         );
 
@@ -193,6 +206,18 @@ public class FrameGraficoZona extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea_Info);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 620, 170));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/home.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setText("Regresar");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
         jLabel_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_piedra.png"))); // NOI18N
         jPanel1.add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 700));
@@ -214,6 +239,32 @@ public class FrameGraficoZona extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        //inciio el menu
+        Menu_Principal Menu = new Menu_Principal();
+        Menu.test_list();
+        Menu.setVisible(true);
+        
+        //Cierro el Jframe
+        FrameGraficoZona zonas = new FrameGraficoZona();
+        zonas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        super.dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel_ImagenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ImagenesMouseClicked
+        // TODO add your handling code here:
+        if(java.awt.Desktop.isDesktopSupported()){
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+             
+            if(desktop.isSupported(java.awt.Desktop.Action.BROWSE)){
+                try{
+                    java.net.URI uri = new java.net.URI("https://www.google.com");
+                    desktop.browse(uri);
+                }catch(URISyntaxException | IOException ex){}
+            }
+        }
+    }//GEN-LAST:event_jLabel_ImagenesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -255,11 +306,13 @@ public class FrameGraficoZona extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel_Fondo;
     private javax.swing.JLabel jLabel_Imagenes;
     private javax.swing.JLabel jLabel_Mapa;
     private javax.swing.JLabel jLabel_Nombre;
-    private javax.swing.JLabel jLabel_Nombre1;
+    private javax.swing.JLabel jLabel_datos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
