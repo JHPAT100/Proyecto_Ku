@@ -9,6 +9,7 @@ import java.awt.Image;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,11 +17,37 @@ import javax.swing.ImageIcon;
  */
 public class FrameGraficoZona extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form FrameGraficoZona
      */
-    public FrameGraficoZona() {
+    
+    public FrameGraficoZona(){
+        
+    }
+    
+    //Sobrepongo la clase con ingreso de valores
+    public FrameGraficoZona(int posicion) {
         initComponents();
+        
+        //Instancio la clase Zonas
+        int posicionNormal=posicion+1;
+        Zonas zona = new Zonas(posicionNormal);
+        zona.Interface();
+        
+        
+        //Inserto los valores del titulo
+        jLabel_Nombre.setText(zona.getNombre());
+        //Inserto los valores del la imagen
+        Icon icon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Img" + posicionNormal + ".png")).getImage().getScaledInstance(294, 262, Image.SCALE_DEFAULT)); 
+        jLabel_Imagenes.setIcon(icon);
+        //Inserto los valores del texto
+        jTextArea_Info.setText(zona.getInformacion());
+        //Inserto los valores del texto
+        jTextArea_Extra.setText(zona.getDatosExtra());
+        //\n
+        
+         //JOptionPane.showMessageDialog(null, posicion);
     }
 
     /**
@@ -34,13 +61,19 @@ public class FrameGraficoZona extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_Imagenes = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
+        jLabel_Nombre = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_Mapa = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea_Extra = new javax.swing.JTextArea();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel_Nombre1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea_Info = new javax.swing.JTextArea();
+        jLabel_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,8 +81,7 @@ public class FrameGraficoZona extends javax.swing.JFrame {
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ruina_ejemplo.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel_Imagenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ruina_ejemplo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -57,14 +89,14 @@ public class FrameGraficoZona extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, Short.MAX_VALUE)
+                .addComponent(jLabel_Imagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_Imagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -73,33 +105,33 @@ public class FrameGraficoZona extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 102, 51));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Zona Arqueológica de Tulum");
+        jLabel_Nombre.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel_Nombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Nombre.setText("Datos curiosos");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(38, 38, 38))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_Nombre)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel_Nombre)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 580, 70));
-        jPanel1.add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 530, 410));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 280, 70));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "\"VER EN EL MAPA\"", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/zona_tulum.png"))); // NOI18N
+        jLabel_Mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/zona_tulum.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -107,18 +139,63 @@ public class FrameGraficoZona extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_Mapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel_Mapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 240, 210));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_piedra.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 700));
+        jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 380, 10));
+
+        jTextArea_Extra.setEditable(false);
+        jTextArea_Extra.setColumns(20);
+        jTextArea_Extra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextArea_Extra.setRows(5);
+        jTextArea_Extra.setText("Hola como estas \nmira que alto estas");
+        jScrollPane1.setViewportView(jTextArea_Extra);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 620, 170));
+
+        jPanel6.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
+
+        jLabel_Nombre1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel_Nombre1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Nombre1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Nombre1.setText("Zona Arqueológica de Tulum");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel_Nombre1, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_Nombre1)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 580, 70));
+
+        jTextArea_Info.setEditable(false);
+        jTextArea_Info.setColumns(20);
+        jTextArea_Info.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextArea_Info.setRows(5);
+        jTextArea_Info.setText("Hola como estas \nmira que alto estas");
+        jScrollPane2.setViewportView(jTextArea_Info);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 620, 170));
+
+        jLabel_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_piedra.png"))); // NOI18N
+        jPanel1.add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 700));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,14 +255,20 @@ public class FrameGraficoZona extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel_Fondo;
+    private javax.swing.JLabel jLabel_Imagenes;
+    private javax.swing.JLabel jLabel_Mapa;
+    private javax.swing.JLabel jLabel_Nombre;
+    private javax.swing.JLabel jLabel_Nombre1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private java.awt.TextArea textArea1;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea jTextArea_Extra;
+    private javax.swing.JTextArea jTextArea_Info;
     // End of variables declaration//GEN-END:variables
 }

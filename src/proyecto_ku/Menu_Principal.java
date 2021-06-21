@@ -159,16 +159,17 @@ public class Menu_Principal extends javax.swing.JFrame{
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         
+        int Posicion = jList1.getSelectedIndex();
+        
         //Inicializo el frame de la informacion de las zonas
-        FrameGraficoZona frameGraficoZona = new FrameGraficoZona(); 
+        FrameGraficoZona frameGraficoZona = new FrameGraficoZona(Posicion); 
         frameGraficoZona.setVisible(true);
         
         //Cierro el frame del menu principal con dispose
         Menu_Principal Menu = new Menu_Principal();
         Menu.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         super.dispose();
-        
-        
+    
     }//GEN-LAST:event_jList1MouseClicked
 
     /**
@@ -209,6 +210,7 @@ public class Menu_Principal extends javax.swing.JFrame{
     
     //Metodo que nos general la lista de los lugares o zunas turisticas
     public void test_list(){
+        
     DefaultListModel<my_object> defaultListModel = new DefaultListModel<my_object>();
     
     
@@ -218,18 +220,16 @@ public class Menu_Principal extends javax.swing.JFrame{
         Zonas zona = new Zonas(i);
         zona.Interface();
         
-
+        //Verifico el icono o imagen para la lista
         Icon icon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Zona" + i + ".png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)); 
-        defaultListModel.addElement(new my_object(zona.getNombre(), zona.getNombreEspanol(), icon));
         
+        //Coloco los valores constructores en la lista
+        defaultListModel.addElement(new my_object(zona.getNombre(), zona.getNombreEspanol(), icon));
         
     }
     jList1.setModel(defaultListModel);
     jList1.setCellRenderer(new PanelZona_Lista());
-    
-    Proyecto_Ku asd = new Proyecto_Ku();
-    
-    
+
     }
     
     

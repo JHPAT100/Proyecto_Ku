@@ -25,14 +25,7 @@ public class Proyecto_Ku {
         Menu.test_list();
         Menu.setVisible(true);
         
-        //InterfaceZonas interfaceZonas = new InterfaceZonas() {};
-        //Zonas zona = new Zonas();
-        
-      
-        
-        
-        //JOptionPane.showMessageDialog(null, interfaceZonas.getNombre());
-        
+       
         
         
     }

@@ -12,7 +12,14 @@ import javax.swing.JOptionPane;
  * @author JHPAT
  */
 public class Zonas extends InterfaceZonas {
+    
     private int posicion;
+    
+    public Zonas(){
+   
+}
+     
+    
     public Zonas(int pos){
     posicion = pos;
 }
@@ -23,10 +30,12 @@ public class Zonas extends InterfaceZonas {
         switch(posicion){
          case 1:
            Nombre =  "CHICHÉN ITZÁ";
-           Informacion = "La ciudad prehispánica Chichén Itzá, que fue la capital más sobresaliente del área Maya. Actualmente esta es la más popular en México y una de las Nuevas Maravillas del Mundo.\n" +
-                   "Su nombre hace referencia al Cenote Sagrado, el gran pozo natural que los habitantes de la "
-                   + "región consideraban una de las entradas principales al inframundo, sede de importantes dioses, como los de la lluvia. "
-                   + "Además, el nombre del sitio alude a los itzaes, poderosos señores mítico-históricos de la ciudad durante la época de su crecimiento y apogeo";
+           Informacion = "La ciudad prehispánica Chichén Itzá, que fue la capital más sobresaliente del área Maya. "
+                   + "\nActualmente esta es la más popular en México y una de las Nuevas Maravillas del Mundo.\n" 
+                   + "\nSu nombre hace referencia al Cenote Sagrado, el gran pozo natural que los habitantes de la "
+                   + "\nregión consideraban una de las entradas principales al inframundo, sede de importantes dioses,"
+                   + "\ncomo los de la lluvia. Además, el nombre del sitio alude a los itzaes, poderosos señores "
+                   + "\nmítico-históricos de la ciudad durante la época de su crecimiento y apogeo";
            DatosExtra = "Otros edificios importantes que hay en esta ciudad son el Observatorio, también conocido como el Caracol, el Templo de los Guerreros, el complejo de Juego de Pelota, entre otros";
            NombreEspanol = "”BOCA DEL POZO DE LOS ITZAES”";
          break;
