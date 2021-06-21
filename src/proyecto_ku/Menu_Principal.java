@@ -9,12 +9,14 @@ import java.awt.Image;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author JHPAT
  */
-public class Menu_Principal extends javax.swing.JFrame {
+public class Menu_Principal extends javax.swing.JFrame{
 
     /**
      * Creates new form Menu_Principal
@@ -41,7 +43,7 @@ public class Menu_Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1050, 750));
@@ -74,6 +76,11 @@ public class Menu_Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 380, 340));
 
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 500, 520));
@@ -130,9 +137,9 @@ public class Menu_Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 580, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_piedra.png"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(1050, 750));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_piedra.png"))); // NOI18N
+        jLabel_Fondo.setPreferredSize(new java.awt.Dimension(1050, 750));
+        jPanel1.add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,6 +156,20 @@ public class Menu_Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        
+        //Inicializo el frame de la informacion de las zonas
+        FrameGraficoZona frameGraficoZona = new FrameGraficoZona(); 
+        frameGraficoZona.setVisible(true);
+        
+        //Cierro el frame del menu principal con dispose
+        Menu_Principal Menu = new Menu_Principal();
+        Menu.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        super.dispose();
+        
+        
+    }//GEN-LAST:event_jList1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -185,22 +206,28 @@ public class Menu_Principal extends javax.swing.JFrame {
         });
     }
 
+    
+    //Metodo que nos general la lista de los lugares o zunas turisticas
     public void test_list(){
     DefaultListModel<my_object> defaultListModel = new DefaultListModel<my_object>();
-    for(int i = 0; i<4; i++){
-        Icon icon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Zona_Lista.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+    for(int i = 1; i <= 4; i++){
+        Icon icon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Zona" + i + ".png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
         defaultListModel.addElement(new my_object("Name"+i, "add"+i, icon));
     }
     jList1.setModel(defaultListModel);
     jList1.setCellRenderer(new PanelZona_Lista());
+    
+    Proyecto_Ku asd = new Proyecto_Ku();
+    
+    
     }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel_Fondo;
     private javax.swing.JList<my_object> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
