@@ -11,6 +11,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
+import proyecto_ku.InterfaceZonas;
+import proyecto_ku.Zonas;
 
 /**
  *
@@ -46,7 +48,6 @@ public class Menu_Principal extends javax.swing.JFrame{
         jLabel_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1050, 750));
         setSize(new java.awt.Dimension(1050, 750));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1050, 750));
@@ -85,7 +86,7 @@ public class Menu_Principal extends javax.swing.JFrame{
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 500, 520));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel3.setBackground(new java.awt.Color(255, 102, 51));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -111,7 +112,7 @@ public class Menu_Principal extends javax.swing.JFrame{
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 230, 70));
 
-        jPanel4.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 102, 51));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -138,7 +139,6 @@ public class Menu_Principal extends javax.swing.JFrame{
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 580, 70));
 
         jLabel_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_piedra.png"))); // NOI18N
-        jLabel_Fondo.setPreferredSize(new java.awt.Dimension(1050, 750));
         jPanel1.add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,9 +210,19 @@ public class Menu_Principal extends javax.swing.JFrame{
     //Metodo que nos general la lista de los lugares o zunas turisticas
     public void test_list(){
     DefaultListModel<my_object> defaultListModel = new DefaultListModel<my_object>();
+    
+    
     for(int i = 1; i <= 4; i++){
-        Icon icon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Zona" + i + ".png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-        defaultListModel.addElement(new my_object("Name"+i, "add"+i, icon));
+        
+        //Trabajamos con los metodos
+        Zonas zona = new Zonas(i);
+        zona.Interface();
+        
+
+        Icon icon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("Imagenes/Zona" + i + ".png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)); 
+        defaultListModel.addElement(new my_object(zona.getNombre(), zona.getNombreEspanol(), icon));
+        
+        
     }
     jList1.setModel(defaultListModel);
     jList1.setCellRenderer(new PanelZona_Lista());

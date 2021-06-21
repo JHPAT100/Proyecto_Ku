@@ -5,6 +5,8 @@
  */
 package proyecto_ku;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author JHPAT
@@ -22,6 +24,14 @@ public class Proyecto_Ku {
         Menu_Principal Menu = new Menu_Principal();
         Menu.test_list();
         Menu.setVisible(true);
+        
+        //InterfaceZonas interfaceZonas = new InterfaceZonas() {};
+        //Zonas zona = new Zonas();
+        
+      
+        
+        
+        //JOptionPane.showMessageDialog(null, interfaceZonas.getNombre());
         
         
         
