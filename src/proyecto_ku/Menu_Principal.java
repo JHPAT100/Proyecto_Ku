@@ -54,7 +54,7 @@ public class Menu_Principal extends javax.swing.JFrame{
         jPanel1.setPreferredSize(new java.awt.Dimension(1050, 750));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.png"))); // NOI18N
@@ -87,7 +87,7 @@ public class Menu_Principal extends javax.swing.JFrame{
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 500, 520));
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -113,9 +113,11 @@ public class Menu_Principal extends javax.swing.JFrame{
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 230, 70));
 
-        jPanel4.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel4.setBackground(new java.awt.Color(255, 153, 0));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
+        jPanel4.setForeground(new java.awt.Color(255, 153, 0));
 
+        jLabel5.setBackground(new java.awt.Color(255, 153, 0));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Zonas arqueológicas ");

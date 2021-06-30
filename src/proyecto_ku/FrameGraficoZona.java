@@ -88,6 +88,7 @@ public class FrameGraficoZona extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel_Imagenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ruina_ejemplo.png"))); // NOI18N
@@ -116,7 +117,7 @@ public class FrameGraficoZona extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 320, 290));
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 
         jLabel_datos.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -143,6 +144,7 @@ public class FrameGraficoZona extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 280, 70));
 
+        jPanel4.setBackground(new java.awt.Color(255, 153, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "\"VER EN EL MAPA\"", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jLabel_Mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mapa1.png"))); // NOI18N
@@ -180,9 +182,10 @@ public class FrameGraficoZona extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 590, 130));
 
-        jPanel6.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel6.setBackground(new java.awt.Color(255, 153, 0));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
 
+        jLabel_Nombre.setBackground(new java.awt.Color(255, 153, 0));
         jLabel_Nombre.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel_Nombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

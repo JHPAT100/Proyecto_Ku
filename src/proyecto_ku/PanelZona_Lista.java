@@ -40,7 +40,7 @@ public class PanelZona_Lista extends javax.swing.JPanel implements ListCellRende
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -50,7 +50,7 @@ public class PanelZona_Lista extends javax.swing.JPanel implements ListCellRende
 
         jLabel_Icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Zona_Lista.png"))); // NOI18N
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setForeground(new java.awt.Color(0, 153, 153));
 
